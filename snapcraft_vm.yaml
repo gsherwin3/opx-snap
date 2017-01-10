@@ -40,7 +40,7 @@ parts:
         - --includedir=/usr/include
         - --prefix=/
         - --exec-prefix=/
-        - --libdir=/lib
+        - --libdir=/usr/lib/x86_64-linux-gnu
         - --bindir=/bin
         - --sysconfdir=/etc
     stage: 
@@ -60,7 +60,7 @@ parts:
         - --includedir=/usr/include
         - --prefix=/
         - --exec-prefix=/
-        - --libdir=/lib
+        - --libdir=/usr/lib/x86_64-linux-gnu
         - --bindir=/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
@@ -84,7 +84,7 @@ parts:
         - --includedir=/usr/include
         - --prefix=/
         - --exec-prefix=/
-        - --libdir=/lib
+        - --libdir=/usr/lib/x86_64-linux-gnu
         - --bindir=/usr/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
@@ -108,7 +108,7 @@ parts:
         - --includedir=/usr/include
         - --prefix=/
         - --exec-prefix=/
-        - --libdir=/usr/lib
+        - --libdir=/usr/lib/x86_64-linux-gnu
         - --bindir=/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
@@ -177,7 +177,7 @@ parts:
         - --includedir=/usr/include
         - --prefix=/
         - --exec-prefix=/
-        - --libdir=/lib
+        - --libdir=/usr/lib/x86_64-linux-gnu
         - --bindir=/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
@@ -201,7 +201,7 @@ parts:
         - --includedir=/usr/include
         - --prefix=/
         - --exec-prefix=/
-        - --libdir=/lib
+        - --libdir=/usr/lib/x86_64-linux-gnu
         - --bindir=/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
@@ -225,7 +225,7 @@ parts:
         - --includedir=/usr/include
         - --prefix=/
         - --exec-prefix=/
-        - --libdir=/lib
+        - --libdir=/usr/lib/x86_64-linux-gnu
         - --bindir=/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
@@ -249,7 +249,7 @@ parts:
         - --includedir=/usr/include
         - --prefix=/
         - --exec-prefix=/
-        - --libdir=/lib
+        - --libdir=/usr/lib/x86_64-linux-gnu
         - --bindir=/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
@@ -348,7 +348,7 @@ parts:
         - --includedir=/usr/include
         - --prefix=/
         - --exec-prefix=/
-        - --libdir=/lib
+        - --libdir=/usr/lib/x86_64-linux-gnu
         - --bindir=/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
@@ -446,7 +446,7 @@ parts:
         - --includedir=$(SNAPCRAFT_STAGE)/usr/include
         - --prefix=/
         - --exec-prefix=/
-        - --libdir=/lib
+        - --libdir=/usr/lib/x86_64-linux-gnu
         - --bindir=/usr/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
@@ -472,7 +472,7 @@ parts:
         - --includedir=$(SNAPCRAFT_STAGE)/usr/include
         - --prefix=/
         - --exec-prefix=/
-        - --libdir=/lib
+        - --libdir=/usr/lib/x86_64-linux-gnu
         - --bindir=/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
@@ -498,7 +498,7 @@ parts:
         - --includedir=$(SNAPCRAFT_STAGE)/usr/include
         - --prefix=/
         - --exec-prefix=/
-        - --libdir=/lib
+        - --libdir=/usr/lib/x86_64-linux-gnu
         - --bindir=/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
@@ -523,7 +523,7 @@ parts:
         - --includedir=$(SNAPCRAFT_STAGE)/usr/include
         - --prefix=/
         - --exec-prefix=/
-        - --libdir=/lib
+        - --libdir=/usr/lib/x86_64-linux-gnu
         - --bindir=/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
@@ -548,7 +548,7 @@ parts:
         - --includedir=$(SNAPCRAFT_STAGE)/usr/include
         - --prefix=/
         - --exec-prefix=/
-        - --libdir=/lib
+        - --libdir=/usr/lib/x86_64-linux-gnu
         - --bindir=/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
@@ -573,7 +573,7 @@ parts:
         - --includedir=$(SNAPCRAFT_STAGE)/usr/include
         - --prefix=/
         - --exec-prefix=/
-        - --libdir=/lib
+        - --libdir=/usr/lib/x86_64-linux-gnu
         - --bindir=/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
@@ -598,7 +598,7 @@ parts:
         - --includedir=$(SNAPCRAFT_STAGE)/usr/include
         - --prefix=/
         - --exec-prefix=/
-        - --libdir=/lib
+        - --libdir=/usr/lib/x86_64-linux-gnu
         - --bindir=/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
@@ -623,7 +623,7 @@ parts:
         - --includedir=$(SNAPCRAFT_STAGE)/usr/include
         - --prefix=/
         - --exec-prefix=/
-        - --libdir=/lib
+        - --libdir=/usr/lib/x86_64-linux-gnu
         - --bindir=/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
