@@ -16,13 +16,14 @@ source $SNAP/usr/bin/opx-sim-env
 source $SNAP/usr/bin/opx-env
 echo HACK STARTING: OPX 
 $BINDIR/redis-server $SNAP/etc/redis/redis.conf &
-$BNNDIR/opx_cps_service &
+$BINDIR/opx_cps_service &
 $BINDIR/python  $SNAP/usr/lib/opx/cps_db_stunnel_manager.py
 $BINDIR/opx_nas_daemon &
 $BINDIR/base_nas_front_panel_ports.sh &
 $BINDIR/base-nas-shell.sh &
 $BINDIR/base_nas_create_interface.sh &
-$BINDIR/base_nas_fanout_init.sh && $SNAP/usr/bin/network_restart.sh
+$BINDIR/base_nas_fanout_init.sh && $BINDIR/network_restart.sh
+cd $BINDIR
 $BINDIR/base_acl_copp_svc.sh &
 $BINDIR/base_nas_default_init.sh &
 echo HACK ENDING: OPX
