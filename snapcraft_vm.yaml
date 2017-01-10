@@ -155,6 +155,15 @@ parts:
     #source-branch: v0.9.4.0-dell
     #plugin: make
     plugin: autotools
+    configflags:
+        - --includedir=/usr/include
+        - --prefix=/
+        - --exec-prefix=/
+        - --libdir=/lib
+        - --bindir=/usr/bin
+        - --sysconfdir=/etc
+        - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
+        - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
     after: [ nas-common ]
     #GASHACKorganize:
       #GASHACKusr/include/sai: usr/include
@@ -368,6 +377,7 @@ parts:
   nas-interface:
     source: https://github.com/gsherwin3/opx-nas-interface.git
     plugin: autotools
+    disable-parallel: true
     configflags:
         - --includedir=/usr/include
         - --prefix=/
@@ -480,11 +490,13 @@ parts:
     #after: [ sai-vm ]
     after: [ nas-daemon ]
     stage: 
+      - inc/*
       - usr/*
       - lib/*
       - bin/*
       - etc/*
     snap: 
+      - inc/*
       - usr/*
       - lib/*
       - bin/*
@@ -501,8 +513,9 @@ parts:
         - --libdir=/lib
         - --bindir=/bin
         - --sysconfdir=/etc
-        - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
+        - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx -I$(SNAPCRAFT_STAGE)/usr/include
         - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
+    disable-parallel: true
     after: [ sdi-api ]
     stage: 
       - usr/*
