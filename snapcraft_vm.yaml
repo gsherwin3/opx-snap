@@ -658,6 +658,9 @@ parts:
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
         - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
     after: [ common-utils, logging ]
+    install: |
+       echo $SNAPCRAFT_PART_INSTALL/$SNAPCRAFT_STAGE
+       cp -R $SNAPCRAFT_PART_INSTALL/$SNAPCRAFT_STAGE/usr $SNAPCRAFT_PART_INSTALL
     stage: 
       - usr/*
       - lib/*
