@@ -528,7 +528,6 @@ parts:
         - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
     after: [ nas-daemon ]
     install: |
-       echo "This is being run after the build"
        echo $SNAPCRAFT_PART_INSTALL/$SNAPCRAFT_STAGE
        cp -R $SNAPCRAFT_PART_INSTALL/$SNAPCRAFT_STAGE/usr $SNAPCRAFT_PART_INSTALL
     stage: 
@@ -557,6 +556,9 @@ parts:
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx -I$(SNAPCRAFT_STAGE)/usr/include
         - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
     disable-parallel: true
+    install: |
+       echo $SNAPCRAFT_PART_INSTALL/$SNAPCRAFT_STAGE
+       cp -R $SNAPCRAFT_PART_INSTALL/$SNAPCRAFT_STAGE/usr $SNAPCRAFT_PART_INSTALL
     after: [ sdi-api ]
     stage: 
       - usr/*
