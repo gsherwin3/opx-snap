@@ -722,6 +722,23 @@ parts:
       - bin/*
       - etc/*
 
+  infrawebsite:
+    source: https://github.com/open-switch/infra_website.git
+    plugin: gulp
+    gulp-tasks:
+      - dist
+    stage-packages: [nodejs]
+    stage: 
+      - usr/*
+      - lib/*
+      - bin/*
+      - etc/*
+    snap: 
+      - usr/*
+      - lib/*
+      - bin/*
+      - etc/*
+
 #OPX
 #opx-docs
 #  docs:
