@@ -12,11 +12,14 @@
 #
 source $SNAP/usr/bin/opx-sim-env
 
+sed 's/logfile \/var\/log\/redis\/redis-server.log/logfile \/var\/snap\/opx-vm\/x1\/var\/log\/redis\/redis-server.log/g' $SNAP/etc/redis/redis.conf > $SNAP_DATA/var/run/redis.conf
 # Setup OpenSwitch environment variables
 source $SNAP/usr/bin/opx-env
 echo STARTING: OPX 
 /bin/run-parts --verbose $SNAP/etc/redis/redis-server.pre-up.d
-$BINDIR/redis-server $SNAP/etc/redis/redis.conf &
+#$BINDIR/redis-server $SNAP/etc/redis/redis.conf &
+$BINDIR/redis-server $SNAP_DATA/var/run/redis.conf &
+#$BINDIR/redis-server &
 /bin/run-parts --verbose $SNAP/etc/redis/redis-server.post-up.d
 $BINDIR/opx_cps_service &
 $BINDIR/python  $SNAP/usr/lib/opx/cps_db_stunnel_manager.py &
