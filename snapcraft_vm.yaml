@@ -225,7 +225,7 @@ parts:
       - etc/*
 
   sai-common:
-    source: https://github.com/open-switch/opx-sai-common.git
+    source: https://github.com/gsherwin3/opx-sai-common.git
     plugin: autotools
     configflags:
         - --includedir=/usr/include
