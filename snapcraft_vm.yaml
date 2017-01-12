@@ -528,7 +528,6 @@ parts:
         - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
     after: [ nas-daemon ]
     install: |
-       echo $SNAPCRAFT_PART_INSTALL/$SNAPCRAFT_STAGE
        cp -R $SNAPCRAFT_PART_INSTALL/$SNAPCRAFT_STAGE/usr $SNAPCRAFT_PART_INSTALL
     stage: 
       - inc/*
@@ -728,16 +727,23 @@ parts:
     gulp-tasks:
       - dist
     stage-packages: [nodejs]
+    install: |
+       cp -R src $SNAPCRAFT_PART_INSTALL
+       cp -R dist $SNAPCRAFT_PART_INSTALL
     stage: 
       - usr/*
       - lib/*
       - bin/*
       - etc/*
+      - src/*
+      - dist/*
     snap: 
       - usr/*
       - lib/*
       - bin/*
       - etc/*
+      - src/*
+      - dist/*
 
 #OPX
 #opx-docs
