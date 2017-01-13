@@ -249,7 +249,7 @@ parts:
       - etc/*
 
   sai-vm:
-    source: https://github.com/open-switch/opx-sai-vm.git
+    source: https://github.com/gsherwin3/opx-sai-vm.git
     plugin: autotools
     configflags:
         - --includedir=/usr/include

@@ -6,6 +6,26 @@
 /usr/bin/test -d $SNAP_DATA/var/log || mkdir -p $SNAP_DATA/var/log
 /usr/bin/test -d $SNAP_DATA/var/log/redis || mkdir -p $SNAP_DATA/var/log/redis
 /usr/bin/test -L $SNAP_DATA/var/run || ln -s $SNAP_DATA/run $SNAP_DATA/var/run
+/usr/bin/test -d $SNAP_DATA/etc || mkdir -p $SNAP_DATA/etc
+/usr/bin/test -d $SNAP_DATA/etc/opt || mkdir -p $SNAP_DATA/etc/opt
+/usr/bin/test -d $SNAP_DATA/etc/opt/dell || mkdir -p $SNAP_DATA/etc/opt/dell
+/usr/bin/test -d $SNAP_DATA/etc/opt/dell/os10 || mkdir -p $SNAP_DATA/etc/opt/dell/os10
+/usr/bin/test -d $SNAP_DATA/opt || mkdir -p $SNAP_DATA/opt
+/usr/bin/test -d $SNAP_DATA/opt/dell || mkdir -p $SNAP_DATA/opt/dell
+
+if [ ! -d  $SNAP_DATA/opt/dell/os10 ]
+then
+     mkdir -p $SNAP_DATA/opt/dell/os10
+     /bin/cp $SNAP/etc/opx/sai_vm_db.cfg $SNAP_DATA/etc/opt/dell/os10/sai_vm_db.cfg
+     sed -i -e's/\/opt\/dell/$SNAP_DATA\/opt\/dell/g' $SNAP_DATA/etc/opt/dell/os10/sai_vm_db.cfg
+fi
+
+if [ ! -d $SNAP_DATA/opt/dell/os10/sai-db ]
+then 
+    mkdir -p $SNAP_DATA/opt/dell/os10/sai-db
+    /bin/cp $SNAP/etc/opx/*.sql $SNAP_DATA/opt/dell/os10/sai-db
+fi 
+
 
 #
 # Appliance / Simulation
