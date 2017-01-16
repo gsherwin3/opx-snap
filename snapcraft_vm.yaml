@@ -249,7 +249,7 @@ parts:
       - etc/*
 
   sai-vm:
-    source: https://github.com/open-switch/opx-sai-vm.git
+    source: https://github.com/gsherwin3/opx-sai-vm.git
     plugin: autotools
     configflags:
         - --includedir=/usr/include
@@ -345,7 +345,7 @@ parts:
       - etc/*
 
   nas-l2:
-    source: https://github.com/open-switch/opx-nas-l2.git
+    source: https://github.com/gsherwin3/opx-nas-l2.git
     plugin: autotools
     configflags:
         - --includedir=/usr/include
