@@ -4,7 +4,6 @@
 /usr/bin/test -d $SNAP_DATA/run || mkdir -p $SNAP_DATA/run
 /usr/bin/test -d $SNAP_DATA/var || mkdir -p $SNAP_DATA/var
 /usr/bin/test -d $SNAP_DATA/var/log || mkdir -p $SNAP_DATA/var/log
-/usr/bin/test -d $SNAP_DATA/var/log/redis || mkdir -p $SNAP_DATA/var/log/redis
 /usr/bin/test -L $SNAP_DATA/var/run || ln -s $SNAP_DATA/run $SNAP_DATA/var/run
 /usr/bin/test -d $SNAP_DATA/etc || mkdir -p $SNAP_DATA/etc
 /usr/bin/test -d $SNAP_DATA/etc/opt || mkdir -p $SNAP_DATA/etc/opt
@@ -26,20 +25,28 @@ then
     /bin/cp $SNAP/etc/opx/*.sql $SNAP_DATA/opt/dell/os10/sai-db
 fi 
 
+if [ ! -d $SNAP_DATA/var/run/redis.conf ]
+then
+    mkdir -p $SNAP_DATA/var/log/redis
+    mkdir -p $SNAP_DATA/var/lib
+    mkdir -p $SNAP_DATA/var/lib/redis
+    # Need to fix the following...
+    sed 's/logfile \/var\/log\/redis\/redis-server.log/logfile \/var\/snap\/opx-vm\/x1\/var\/log\/redis\/redis-server.log/g' $SNAP/etc/redis/redis.conf > $SNAP_DATA/var/run/redis.conf
+    #sed -i -e's/\/var\/lib\/redis/$SNAP_DATA\/var\/lib\/redis/g' $SNAP_DATA/var/run/redis.conf
+    sed -i -e's/\/var\/lib\/redis/\/var\/snap\/opx-vm\/x1\/var\/lib\/redis/g' $SNAP_DATA/var/run/redis.conf
+fi
+
 
 #
 # Appliance / Simulation
 #
 source $SNAP/usr/bin/opx-sim-env
 
-sed 's/logfile \/var\/log\/redis\/redis-server.log/logfile \/var\/snap\/opx-vm\/x1\/var\/log\/redis\/redis-server.log/g' $SNAP/etc/redis/redis.conf > $SNAP_DATA/var/run/redis.conf
 # Setup OpenSwitch environment variables
 source $SNAP/usr/bin/opx-env
 echo STARTING: OPX 
 /bin/run-parts --verbose $SNAP/etc/redis/redis-server.pre-up.d
-#$BINDIR/redis-server $SNAP/etc/redis/redis.conf &
 $BINDIR/redis-server $SNAP_DATA/var/run/redis.conf &
-#$BINDIR/redis-server &
 /bin/run-parts --verbose $SNAP/etc/redis/redis-server.post-up.d
 $BINDIR/opx_cps_service &
 $BINDIR/python  $SNAP/usr/lib/opx/cps_db_stunnel_manager.py &
