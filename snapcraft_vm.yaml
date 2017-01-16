@@ -726,7 +726,7 @@ parts:
     plugin: gulp
     gulp-tasks:
       - dist
-    stage-packages: [nodejs]
+    stage-packages: [nodejs, libuv1-dev, lighttpd ]
     install: |
        cp -R src $SNAPCRAFT_PART_INSTALL
        cp -R dist $SNAPCRAFT_PART_INSTALL
