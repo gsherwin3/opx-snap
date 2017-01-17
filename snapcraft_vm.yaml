@@ -745,6 +745,52 @@ parts:
       - src/*
       - dist/*
 
+  flxsdk:
+    source: https://github.com/open-switch/opx-flxSdk.git
+    plugin: dump
+    filesets:
+      notneeded: [ Makefile, README.md ]
+    stage:
+      - py/*
+      - examples/*
+      - -$notneeded      # don't need these files.
+    snap:
+      - py/*
+      - examples/*
+      - -$notneeded      # don't need these files.
+
+  flxconfig:
+    source: https://github.com/open-switch/opx-flxconfig.git
+    plugin: dump
+    filesets:
+      notneeded: [ Makefile, README.md ]
+    stage:
+      - actions/*
+      - apis/*
+      - clients/*
+      - objects/*
+      - params/*
+      - server/*
+      - docgen/*
+      - docs/*
+      - docsui/*
+      - testclient/*
+      - main.go
+      - -$notneeded      # don't need these files.
+    snap:
+      - actions/*
+      - apis/*
+      - clients/*
+      - objects/*
+      - params/*
+      - server/*
+      - docgen/*
+      - docs/*
+      - docsui/*
+      - testclient/*
+      - main.go
+      - -$notneeded      # don't need these files.
+
 #OPX
 #opx-docs
 #  docs:
