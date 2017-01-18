@@ -6,24 +6,20 @@
 /usr/bin/test -d $SNAP_DATA/var/log || mkdir -p $SNAP_DATA/var/log
 /usr/bin/test -L $SNAP_DATA/var/run || ln -s $SNAP_DATA/run $SNAP_DATA/var/run
 /usr/bin/test -d $SNAP_DATA/etc || mkdir -p $SNAP_DATA/etc
-/usr/bin/test -d $SNAP_DATA/etc/opt || mkdir -p $SNAP_DATA/etc/opt
-/usr/bin/test -d $SNAP_DATA/etc/opt/dell || mkdir -p $SNAP_DATA/etc/opt/dell
-/usr/bin/test -d $SNAP_DATA/etc/opt/dell/os10 || mkdir -p $SNAP_DATA/etc/opt/dell/os10
-/usr/bin/test -d $SNAP_DATA/opt || mkdir -p $SNAP_DATA/opt
-/usr/bin/test -d $SNAP_DATA/opt/dell || mkdir -p $SNAP_DATA/opt/dell
 
-if [ ! -d  $SNAP_DATA/opt/dell/os10 ]
+if [ ! -d  $SNAP_DATA/etc/opx ]
 then
-     mkdir -p $SNAP_DATA/opt/dell/os10
-     /bin/cp $SNAP/etc/opx/sai_vm_db.cfg $SNAP_DATA/etc/opt/dell/os10/sai_vm_db.cfg
-     sed -i -e's/\/opt\/dell/$SNAP_DATA\/opt\/dell/g' $SNAP_DATA/etc/opt/dell/os10/sai_vm_db.cfg
+     mkdir -p $SNAP_DATA/etc/opx
+     /bin/cp $SNAP/etc/opx/sai_vm_db.cfg $SNAP_DATA/etc/opx/sai_vm_db.cfg
+     sed -i -e's/\/opt\/dell\/os10\/sai-db/$SNAP_DATA\/etc\/opx/g' $SNAP_DATA/etc/opx/sai_vm_db.cfg
+     /bin/cp $SNAP/etc/opx/*.sql $SNAP_DATA/etc/opx
 fi
 
-if [ ! -d $SNAP_DATA/opt/dell/os10/sai-db ]
-then 
-    mkdir -p $SNAP_DATA/opt/dell/os10/sai-db
-    /bin/cp $SNAP/etc/opx/*.sql $SNAP_DATA/opt/dell/os10/sai-db
-fi 
+if [ ! -d  $SNAP_DATA/etc/opx/sdi ]
+then
+     mkdir -p $SNAP_DATA/etc/opx/sdi
+    /bin/cp $SNAP/etc/opx/sdi/*.sql $SNAP_DATA/etc/opx/sdi
+fi
 
 if [ ! -d $SNAP_DATA/var/run/redis.conf ]
 then
@@ -35,7 +31,6 @@ then
     #sed -i -e's/\/var\/lib\/redis/$SNAP_DATA\/var\/lib\/redis/g' $SNAP_DATA/var/run/redis.conf
     sed -i -e's/\/var\/lib\/redis/\/var\/snap\/opx-vm\/x1\/var\/lib\/redis/g' $SNAP_DATA/var/run/redis.conf
 fi
-
 
 #
 # Appliance / Simulation
