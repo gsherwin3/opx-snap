@@ -155,7 +155,7 @@ parts:
       - etc/*
 
   pas:
-    source: https://github.com/open-switch/opx-pas.git
+    source: https://github.com/gsherwin3/opx-pas.git
     plugin: autotools
     configflags:
         - --includedir=/usr/include
@@ -600,7 +600,7 @@ parts:
       - etc/*
 
   sdi-sys-vm:
-    source: https://github.com/open-switch/opx-sdi-sys-vm.git
+    source: https://github.com/gsherwin3/opx-sdi-sys-vm.git
     plugin: autotools
     disable-parallel: true
     configflags:
