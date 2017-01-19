@@ -150,29 +150,29 @@ parts:
       - bin/*
       - etc/*
 
-#  pas:
-#    source: https://github.com/open-switch/opx-pas.git
-#    plugin: autotools
-#    configflags:
-#        - --includedir=/usr/include
-#        - --prefix=/
-#        - --exec-prefix=/
-#        - --libdir=/usr/lib/x86_64-linux-gnu
-#        - --bindir=/usr/bin
-#        - --sysconfdir=/etc
-#        - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
-#        - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
-#    after: [ nas-common ]
-#    stage: 
-#      - usr/*
-#      - lib/*
-#      - bin/*
-#      - etc/*
-#    snap: 
-#      - usr/*
-#      - lib/*
-#      - bin/*
-#      - etc/*
+  pas:
+    source: https://github.com/open-switch/opx-pas.git
+    plugin: autotools
+    configflags:
+        - --includedir=/usr/include
+        - --prefix=/
+        - --exec-prefix=/
+        - --libdir=/usr/lib/x86_64-linux-gnu
+        - --bindir=/usr/bin
+        - --sysconfdir=/etc
+        - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
+        - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
+    after: [ nas-common, sdi-sys ]
+    stage: 
+      - usr/*
+      - lib/*
+      - bin/*
+      - etc/*
+    snap: 
+      - usr/*
+      - lib/*
+      - bin/*
+      - etc/*
 
   sai-api:
     source: https://github.com/gsherwin3/opx-sai-api.git
@@ -570,31 +570,30 @@ parts:
       - bin/*
       - etc/*
 
-#opx-sdi-sys --> sonic-sdi-sys-vm
 #conflicts with sdi-sys-vm
-#  sdi-sys:
-#    source: https://github.com/open-switch/opx-sdi-sys.git
-#    plugin: autotools
-#    configflags:
-#        - --includedir=$(SNAPCRAFT_STAGE)/usr/include
-#        - --prefix=/
-#        - --exec-prefix=/
-#        - --libdir=/usr/lib/x86_64-linux-gnu
-#        - --bindir=/bin
-#        - --sysconfdir=/etc
-#        - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
-#        - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
-#    after: [ sdi-framework ]
-#    stage: 
-#      - usr/*
-#      - lib/*
-#      - bin/*
-#      - etc/*
-#    snap: 
-#      - usr/*
-#      - lib/*
-#      - bin/*
-#      - etc/*
+  sdi-sys:
+    source: https://github.com/open-switch/opx-sdi-sys.git
+    plugin: autotools
+    configflags:
+        - --includedir=$(SNAPCRAFT_STAGE)/usr/include
+        - --prefix=/
+        - --exec-prefix=/
+        - --libdir=/lib
+        - --bindir=/usr/bin
+        - --sysconfdir=/etc
+        - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
+        - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
+    after: [ sdi-framework ]
+    stage: 
+      - usr/*
+      - lib/*
+      - bin/*
+      - etc/*
+    snap: 
+      - usr/*
+      - lib/*
+      - bin/*
+      - etc/*
 
   sdi-sys-vm:
     source: https://github.com/open-switch/opx-sdi-sys-vm.git
@@ -605,7 +604,7 @@ parts:
         - --prefix=/
         - --exec-prefix=/
         - --libdir=/usr/lib/x86_64-linux-gnu
-        - --bindir=/bin
+        - --bindir=/usr/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
         - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
