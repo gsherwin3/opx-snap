@@ -56,7 +56,7 @@ $BINDIR/base_nas_front_panel_ports.sh &
 $BINDIR/base-nas-shell.sh &
 $BINDIR/base_nas_create_interface.sh &
 $BINDIR/base_nas_fanout_init.sh && $BINDIR/network_restart.sh &
-$BNDIR/base_ip &
+$BINDIR/base_ip &
 $BINDIR/base_acl_copp_svc.sh &
 $BINDIR/base_nas_default_init.sh &
 $BINDIR/base_qos_init.sh &
