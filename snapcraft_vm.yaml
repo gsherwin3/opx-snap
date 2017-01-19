@@ -41,7 +41,7 @@ parts:
         - --prefix=/
         - --exec-prefix=/
         - --libdir=/usr/lib/x86_64-linux-gnu
-        - --bindir=/bin
+        - --bindir=/usr/bin
         - --sysconfdir=/etc
     stage: 
       - usr/*
@@ -321,14 +321,14 @@ parts:
       - etc/*
 
   nas-linux:
-    source: https://github.com/open-switch/opx-nas-linux.git
+    source: https://github.com/gsherwin3/opx-nas-linux.git
     plugin: autotools
     configflags:
         - --includedir=/usr/include
         - --prefix=/
         - --exec-prefix=/
         - --libdir=/usr/lib/x86_64-linux-gnu
-        - --bindir=/bin
+        - --bindir=/usr/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
         - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
@@ -352,7 +352,7 @@ parts:
         - --prefix=/
         - --exec-prefix=/
         - --libdir=/usr/lib/x86_64-linux-gnu
-        - --bindir=/bin
+        - --bindir=/usr/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
         - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
@@ -376,7 +376,7 @@ parts:
         - --prefix=/
         - --exec-prefix=/
         - --libdir=/usr/lib/x86_64-linux-gnu
-        - --bindir=/bin
+        - --bindir=/usr/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
         - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
