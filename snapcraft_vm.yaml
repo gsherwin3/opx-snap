@@ -784,6 +784,10 @@ parts:
     after: [ flxutils ]
     filesets:
       notneeded: [ Makefile, README.md ]
+    organize:
+      server: src/config/server
+      keepalive: src/utils/keepalive
+      logging: src/utils/logging
     stage:
       - actions/*
       - apis/*
