@@ -21,3 +21,7 @@ export OVS_PKGDATADIR=$SCHEMADIR
 export OVS_RUNDIR=$DBDIR
 export OVS_LOGDIR=$LOGDIR
 export OVS_DBDIR=$DBDIR
+
+# Required for GO
+export GOROOT=$SNAP/usr/lib/go-1.6
+export GOPATH=$SNAP

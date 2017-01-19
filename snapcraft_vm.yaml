@@ -20,6 +20,10 @@ apps:
     command: bin/bash
     plugs: [ network, network-control, network-bind, network-manager, network-observe, gsettings, firewall-control ]
 
+  start-server:
+    command: usr/bin/start-server
+    plugs: [ network, network-control, network-bind, network-manager, network-observe, gsettings, firewall-control ]
+
 build-packages: [redis-server, libhiredis-dev, gcc, g++, libxml2, libpython-dev, python-setuptools, doxygen, libsystemd-dev, libssl-dev, exuberant-ctags, libxml2-dev, python-pip, debhelper, libsqlite3-dev, libfuse-dev, libevent-dev]
 
 parts:
