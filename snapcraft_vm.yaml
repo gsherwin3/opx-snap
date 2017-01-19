@@ -759,9 +759,26 @@ parts:
       - examples/*
       - -$notneeded      # don't need these files.
 
+  flxutils:
+    source: https://github.com/open-switch/opx-flxutils.git
+    plugin: dump
+    filesets:
+      notneeded: [ Makefile, README.md ]
+    stage:
+      - keepalive/*
+      - logging/*
+      - -$notneeded      # don't need these files.
+    snap:
+      - keepalive/*
+      - logging/*
+      - -$notneeded      # don't need these files.
+
   flxconfig:
     source: https://github.com/open-switch/opx-flxconfig.git
     plugin: dump
+    build-packages: [golang, golang-go ]
+    stage-packages: [golang, golang-go ]
+    after: [ flxutils ]
     filesets:
       notneeded: [ Makefile, README.md ]
     stage:
@@ -775,6 +792,7 @@ parts:
       - docs/*
       - docsui/*
       - testclient/*
+      - usr/
       - main.go
       - -$notneeded      # don't need these files.
     snap:
@@ -787,6 +805,7 @@ parts:
       - docgen/*
       - docs/*
       - docsui/*
+      - usr/
       - testclient/*
       - main.go
       - -$notneeded      # don't need these files.
