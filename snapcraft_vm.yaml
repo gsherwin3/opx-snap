@@ -166,7 +166,7 @@ parts:
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
         - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
-    after: [ nas-common, sdi-sys ]
+    after: [ nas-common, sdi-sys-vm, sdi-sys ]
     stage: 
       - usr/*
       - lib/*
