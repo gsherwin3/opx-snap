@@ -48,12 +48,12 @@ $BINDIR/opx_cps_service &
 $BINDIR/python  $SNAP/usr/lib/opx/cps_db_stunnel_manager.py &
 $BINDIR/base_nas_monitor_phy_media.sh &
 $BINDIR/base_nas_phy_media_config.sh &
+$BINDIR/opx_nas_daemon &
 #PAS
 #$BINDIR/platform_init.sh
 export LD_LIBRARY_PATH=$SNAP/usr/lib/x86_64-linux-gnu
-$BINDIR/opx_pas_service
+$BINDIR/opx_pas_service &
 export LD_LIBRARY_PATH=$SNAP/lib:$SNAP/usr/lib/x86_64-linux-gnu
-$BINDIR/opx_nas_daemon &
 $BINDIR/base_nas_front_panel_ports.sh &
 $BINDIR/base-nas-shell.sh &
 $BINDIR/base_nas_create_interface.sh &
