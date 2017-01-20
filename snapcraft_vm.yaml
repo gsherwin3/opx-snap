@@ -724,29 +724,29 @@ parts:
       - bin/*
       - etc/*
 
-  infrawebsite:
-    source: https://github.com/open-switch/infra_website.git
-    plugin: gulp
-    gulp-tasks:
-      - dist
-    stage-packages: [nodejs, libuv1-dev, lighttpd ]
-    install: |
-       cp -R src $SNAPCRAFT_PART_INSTALL
-       cp -R dist $SNAPCRAFT_PART_INSTALL
-    stage: 
-      - usr/*
-      - lib/*
-      - bin/*
-      - etc/*
-      - src/*
-      - dist/*
-    snap: 
-      - usr/*
-      - lib/*
-      - bin/*
-      - etc/*
-      - src/*
-      - dist/*
+  #infrawebsite:
+  #  source: https://github.com/open-switch/infra_website.git
+  #  plugin: gulp
+  #  gulp-tasks:
+  #    - dist
+  #  stage-packages: [nodejs, libuv1-dev, lighttpd ]
+  #  install: |
+  #     cp -R src $SNAPCRAFT_PART_INSTALL
+  #     cp -R dist $SNAPCRAFT_PART_INSTALL
+  #  stage: 
+  #    - usr/*
+  #    - lib/*
+  #    - bin/*
+  #    - etc/*
+  #    - src/*
+  #    - dist/*
+  #  snap: 
+  #    - usr/*
+  #    - lib/*
+  #    - bin/*
+  #    - etc/*
+  #    - src/*
+  #    - dist/*
 
   flxsdk:
     source: https://github.com/open-switch/opx-flxSdk.git
@@ -767,13 +767,19 @@ parts:
     plugin: dump
     filesets:
       notneeded: [ Makefile, README.md ]
+    organize:
+      keepalive: src/utils/keepalive
+      logging: src/utils/logging
+      ringBuffer: src/utils/ringBuffer
+      commonDefs: src/utils/commonDefs
+      dbutils: src/utils/dbutils
+      ipcutils: src/utils/ipcutils
+      eventUtils: src/utils/eventUtils
     stage:
-      - keepalive/*
-      - logging/*
+      - src/*
       - -$notneeded      # don't need these files.
     snap:
-      - keepalive/*
-      - logging/*
+      - src/*
       - -$notneeded      # don't need these files.
 
   flxconfig:
@@ -786,13 +792,11 @@ parts:
       notneeded: [ Makefile, README.md ]
     organize:
       server: src/config/server
-      keepalive: src/utils/keepalive
-      logging: src/utils/logging
+      actions: src/config/actions
+      apis: src/config/apis
+      clients: src/config/clients
+      objects: src/config/objects
     stage:
-      - actions/*
-      - apis/*
-      - clients/*
-      - objects/*
       - params/*
       - server/*
       - docgen/*
@@ -800,13 +804,10 @@ parts:
       - docsui/*
       - testclient/*
       - usr/
+      - src/
       - main.go
       - -$notneeded      # don't need these files.
     snap:
-      - actions/*
-      - apis/*
-      - clients/*
-      - objects/*
       - params/*
       - server/*
       - docgen/*
@@ -814,8 +815,30 @@ parts:
       - docsui/*
       - usr/
       - testclient/*
+      - src/
       - main.go
       - -$notneeded      # don't need these files.
+
+  #flxinfra:
+  #  source: https://github.com/stevedelahunty/opx-flxinfra.git
+  #  plugin: make
+  #  build: |
+  #    pwd
+  #    env
+  #    mkdir -p generated/src
+  #    make SR_CODE_BASE=$PWD
+  #  build-packages: [golang, golang-go, thrift-compiler ]
+  #  stage-packages: [golang, golang-go ]
+  #  filesets:
+  #    notneeded: [ Makefile, README.md ]
+  #  organize:
+  #    sysd: src/sysd
+  #  stage:
+  #    - src/
+  #    - -$notneeded      # don't need these files.
+  #  snap:
+  #    - src/
+  #    - -$notneeded      # don't need these files.
 
 #OPX
 #opx-docs
