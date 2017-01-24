@@ -39,6 +39,15 @@ source $SNAP/usr/bin/opx-sim-env
 
 # Setup OPX environment variables
 source $SNAP/usr/bin/opx-env
+
+# Setup _opx_cps user
+if ! getent group _opx_cps > /dev/null; then
+    addgroup --quiet --system --force-badname _opx_cps
+fi
+if ! getent passwd  _opx_cps> /dev/null; then
+    adduser --quiet --system  --force-badname --no-create-home --ingroup _opx_cps _opx_cps
+fi
+
 echo STARTING: OPX 
 cd $SNAP_DATA/run
 /bin/run-parts --verbose $SNAP/etc/redis/redis-server.pre-up.d
@@ -51,9 +60,7 @@ $BINDIR/base_nas_phy_media_config.sh &
 $BINDIR/opx_nas_daemon &
 #PAS
 #$BINDIR/platform_init.sh
-export LD_LIBRARY_PATH=$SNAP/usr/lib/x86_64-linux-gnu
 $BINDIR/opx_pas_service &
-export LD_LIBRARY_PATH=$SNAP/lib:$SNAP/usr/lib/x86_64-linux-gnu
 $BINDIR/base_nas_front_panel_ports.sh &
 $BINDIR/base-nas-shell.sh &
 $BINDIR/base_nas_create_interface.sh &

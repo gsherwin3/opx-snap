@@ -26,5 +26,5 @@ CFGDIR=$SNAP_DATA/etc/opx
 export OPX_INSTALL_PATH=$SNAP
 export OPX_DATA_PATH=$SNAP_DATA
 export PATH=/snap/opx-vm/x1/bin:/snap/opx-vm/x1/usr/bin:$PATH
-export LD_LIBRARY_PATH=$SNAP/lib:$SNAP/usr/lib/x86_64-linux-gnu
+export LD_LIBRARY_PATH=$SNAP/usr/lib/x86_64-linux-gnu
 export PYTHONPATH=$SNAP/usr/lib/opx:$SNAP/usr/lib/x86_64-linux-gnu/opx:$SNAP/lib/python2.7/site-packages
