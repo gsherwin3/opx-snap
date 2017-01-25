@@ -10,19 +10,19 @@ confinement: devmode # use 'strict' once you have the right plugs and slots
 apps:
   start-opx:
     command: usr/bin/start-opx
-    plugs: [ network, network-control, network-bind, network-manager, network-observe, gsettings, firewall-control ]
+    plugs: [ network, network-control, network-bind, network-setup-observe, network-observe, gsettings, firewall-control ]
 
   stop-opx:
     command: usr/bin/stop-opx
-    plugs: [ network, network-control, network-bind, network-manager, network-observe, gsettings, firewall-control ]
+    plugs: [ network, network-control, network-bind, network-setup-observe, network-observe, gsettings, firewall-control ]
 
   shell:
     command: bin/bash
-    plugs: [ network, network-control, network-bind, network-manager, network-observe, gsettings, firewall-control ]
+    plugs: [ network, network-control, network-bind, network-setup-observe, network-observe, gsettings, firewall-control ]
 
   start-server:
     command: usr/bin/start-server
-    plugs: [ network, network-control, network-bind, network-manager, network-observe, gsettings, firewall-control ]
+    plugs: [ network, network-control, network-bind, network-setup-observe, network-observe, gsettings, firewall-control ]
 
 build-packages: [redis-server, libhiredis-dev, gcc, g++, libxml2, libpython-dev, python-setuptools, doxygen, libsystemd-dev, libssl-dev, exuberant-ctags, libxml2-dev, python-pip, debhelper, libsqlite3-dev, libfuse-dev, libevent-dev]
 
