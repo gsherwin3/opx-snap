@@ -26,10 +26,8 @@ then
     mkdir -p $SNAP_DATA/var/log/redis
     mkdir -p $SNAP_DATA/var/lib
     mkdir -p $SNAP_DATA/var/lib/redis
-    # Need to fix the following...
-    sed 's/logfile \/var\/log\/redis\/redis-server.log/logfile \/var\/snap\/opx-vm\/x1\/var\/log\/redis\/redis-server.log/g' $SNAP/etc/redis/redis.conf > $SNAP_DATA/var/run/redis.conf
-    #sed -i -e's/\/var\/lib\/redis/$SNAP_DATA\/var\/lib\/redis/g' $SNAP_DATA/var/run/redis.conf
-    sed -i -e's/\/var\/lib\/redis/\/var\/snap\/opx-vm\/x1\/var\/lib\/redis/g' $SNAP_DATA/var/run/redis.conf
+    sed "s|logfile \/var\/log\/redis\/redis-server.log|logfile ${SNAP_DATA}\/var\/log\/redis\/redis-server.log|g" $SNAP/etc/redis/redis.conf > $SNAP_DATA/var/run/redis.conf
+    sed -i -e"s|\/var\/lib\/redis|$SNAP_DATA\/var\/lib\/redis|g" $SNAP_DATA/var/run/redis.conf
 fi
 
 #
