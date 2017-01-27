@@ -626,7 +626,7 @@ parts:
 
 #opx-platform-config --> sonic-platform-vm-config ?
   platform-config:
-    source: https://github.com/open-switch/opx-platform-config.git
+    source: https://github.com/gsherwin3/opx-platform-config.git
     plugin: autotools
     configflags:
         - --includedir=$(SNAPCRAFT_STAGE)/usr/include
