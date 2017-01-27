@@ -55,9 +55,8 @@ $BINDIR/opx_cps_service &
 $BINDIR/python  $SNAP/usr/lib/opx/cps_db_stunnel_manager.py &
 $BINDIR/base_nas_monitor_phy_media.sh &
 $BINDIR/base_nas_phy_media_config.sh &
+#$BINDIR/common-vm/opx_platform_init.sh
 $BINDIR/opx_nas_daemon &
-#PAS
-#$BINDIR/platform_init.sh
 $BINDIR/opx_pas_service &
 $BINDIR/base_nas_front_panel_ports.sh &
 $BINDIR/base-nas-shell.sh &

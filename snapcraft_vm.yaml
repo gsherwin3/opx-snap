@@ -633,7 +633,7 @@ parts:
         - --prefix=/
         - --exec-prefix=/
         - --libdir=/usr/lib/x86_64-linux-gnu
-        - --bindir=/bin
+        - --bindir=/usr/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
         - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
