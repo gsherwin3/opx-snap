@@ -680,6 +680,7 @@ parts:
        mv $SNAPCRAFT_PART_INSTALL/common-hw/bin/pcisysfs.py $SNAPCRAFT_PART_INSTALL/usr/bin/pcisysfs.py
        mv $SNAPCRAFT_PART_INSTALL/common-hw/bin/portiocfg.py $SNAPCRAFT_PART_INSTALL/usr/bin/portiocfg.py
        mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000/etc/opx/nas/base_port_physical_mapping_table.xml $SNAPCRAFT_PART_INSTALL/etc/opx/base_port_physical_mapping_table.xml
+
   db-sql:
     source: https://github.com/open-switch/opx-db-sql.git
     plugin: autotools
