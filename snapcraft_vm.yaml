@@ -31,6 +31,12 @@ parts:
     plugin: make
     source: src/opx-init
     stage-packages: [ redis-server, sqlite3, binutils, file, strace, bash, iputils-ping, traceroute, python ]
+    filesets:
+      notneeded: [ etc/redis/redis.conf ]
+    stage:
+      - -etc/redis/redis.conf
+    snap:
+      - -etc/redis/redis.conf
 
   pyang:
     source: https://github.com/stevedelahunty/pyang.git
@@ -625,29 +631,55 @@ parts:
       - etc/*
 
 #opx-platform-config --> sonic-platform-vm-config ?
+#  platform-config:
+#    source: https://github.com/gsherwin3/opx-platform-config.git
+#    plugin: autotools
+#    configflags:
+#        - --includedir=$(SNAPCRAFT_STAGE)/usr/include
+#        - --prefix=/
+#        - --exec-prefix=/
+#        - --libdir=/usr/lib/x86_64-linux-gnu
+#        - --bindir=/usr/bin
+#        - --sysconfdir=/etc
+#        - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
+#        - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
+#    after: [ nas-daemon ]
+#    stage: 
+#      - usr/*
+#      - lib/*
+#      - bin/*
+#      - etc/*
+#    snap: 
+#      - usr/*
+#      - lib/*
+#      - bin/*
+#      - etc/*
+
   platform-config:
     source: https://github.com/gsherwin3/opx-platform-config.git
-    plugin: autotools
-    configflags:
-        - --includedir=$(SNAPCRAFT_STAGE)/usr/include
-        - --prefix=/
-        - --exec-prefix=/
-        - --libdir=/usr/lib/x86_64-linux-gnu
-        - --bindir=/usr/bin
-        - --sysconfdir=/etc
-        - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
-        - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
-    after: [ nas-daemon ]
-    stage: 
-      - usr/*
-      - lib/*
-      - bin/*
-      - etc/*
-    snap: 
-      - usr/*
-      - lib/*
-      - bin/*
-      - etc/*
+    plugin: dump
+#    filesets:
+#      notneeded: [ Makefile, README.md, nas_ndi_plat_stat.c, hal_npu_platform_init.c ]
+    organize:
+      config.xml : etc/opx/pas/config.xml
+      init.xml : etc/opx/sai/init.xml
+      phy_media_default_npu_setting.xml : etc/opx/phy_media_default_npu_setting.xml
+      opx-environment.sh : etc/opx/opx-environment.sh
+      opx_platform_init.sh : usr/bin/opx_platform_init.sh
+      opx_platform_shutdown.sh : usr/bin/opx_platform_shutdown.sh
+    install: |
+       #mv $SNAPCRAFT_PART_INSTALL/platform-config/src/common/etc/opx/opx-environment.sh $SNAPCRAFT_PART_INSTALL/etc/opx/opx-environment.sh
+       mkdir $SNAPCRAFT_PART_INSTALL/etc
+       mkdir $SNAPCRAFT_PART_INSTALL/etc/opx
+       mkdir $SNAPCRAFT_PART_INSTALL/etc/opx/pas
+       mkdir $SNAPCRAFT_PART_INSTALL/etc/opx/sai
+       mkdir $SNAPCRAFT_PART_INSTALL/usr
+       mkdir $SNAPCRAFT_PART_INSTALL/usr/bin
+       mv $SNAPCRAFT_PART_INSTALL/common/etc/opx/opx-environment.sh $SNAPCRAFT_PART_INSTALL/etc/opx/opx-environment.sh
+       mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000/etc/opx/nas/phy_media_default_npu_setting.xml $SNAPCRAFT_PART_INSTALL/etc/opx/phy_media_default_npu_setting.xml
+       mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000/etc/opx/pas/config.xml $SNAPCRAFT_PART_INSTALL/etc/opx/pas/config.xml
+       mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000-hw/etc/opx/sai/init.xml $SNAPCRAFT_PART_INSTALL/etc/opx/sai/init.xml 
+       mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000-hw/bin/opx_platform_init.sh $SNAPCRAFT_PART_INSTALL/usr/bin/opx_platform_init.sh
 
   db-sql:
     source: https://github.com/open-switch/opx-db-sql.git
