@@ -43,7 +43,7 @@ parts:
     plugin: make
 
   logging:
-    source: https://github.com/open-switch/opx-logging.git
+    source: https://github.com/gsherwin3/opx-logging.git
     plugin: autotools
     after: [ pyang ]
     configflags:
