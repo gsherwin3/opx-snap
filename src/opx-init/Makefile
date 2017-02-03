@@ -10,3 +10,4 @@ install:
 	install -m 755 start-opx.sh $(BIN)/start-opx
 	install -m 755 stop-opx.sh $(BIN)/stop-opx
 	install -m 755 start-server.sh $(BIN)/start-server
+	install -m 755 80-dn-virt-intf.rules $(BIN)/80-dn-virt-intf.rules 

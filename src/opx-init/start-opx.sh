@@ -33,6 +33,11 @@ then
     sed -i -e"s|\/var\/lib\/redis|$SNAP_DATA\/var\/lib\/redis|g" $SNAP_DATA/var/run/redis.conf
 fi
 
+if [ ! -d /etc/udev/rules.d/80-dn-virt-intf.rules ]
+then
+    /bin/mv $SNAP/usr/bin/80-dn-virt-intf.rules /etc/udev/rules.d
+fi
+
 #
 # Appliance / Simulation
 #
