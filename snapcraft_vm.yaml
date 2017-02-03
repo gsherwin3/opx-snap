@@ -680,6 +680,7 @@ parts:
        mv $SNAPCRAFT_PART_INSTALL/common-hw/bin/portiocfg.py $SNAPCRAFT_PART_INSTALL/usr/bin/portiocfg.py
        mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000/etc/opx/nas/base_port_physical_mapping_table.xml $SNAPCRAFT_PART_INSTALL/etc/opx/base_port_physical_mapping_table.xml
        mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000-vm/etc/opx/sai/init.xml $SNAPCRAFT_PART_INSTALL/etc/opx/sai/init.xml 
+       mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000/etc/opx/nas/switch.xml $SNAPCRAFT_PART_INSTALL/etc/opx/switch.xml 
        #mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000-hw/etc/opx/sai/init.xml $SNAPCRAFT_PART_INSTALL/etc/opx/sai/init.xml 
 
   db-sql:

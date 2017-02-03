@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Delay CPS, NAS and PAS to make sure everything is up correctly...
+DELAY=5
+
 # Setup /var/run, /run and /var/log
 /usr/bin/test -d $SNAP_DATA/run || mkdir -p $SNAP_DATA/run
 /usr/bin/test -d $SNAP_DATA/var || mkdir -p $SNAP_DATA/var
@@ -52,12 +55,21 @@ cd $SNAP_DATA/run
 $BINDIR/redis-server $SNAP_DATA/var/run/redis.conf &
 /bin/run-parts --verbose $SNAP/etc/redis/redis-server.post-up.d
 $BINDIR/opx_cps_service &
+if (( "$DELAY" > "0" )) ; then
+    sleep $DELAY
+fi
 $BINDIR/python  $SNAP/usr/lib/opx/cps_db_stunnel_manager.py &
 $BINDIR/base_nas_monitor_phy_media.sh &
 $BINDIR/base_nas_phy_media_config.sh &
 #$BINDIR/opx_platform_init.sh
-$BINDIR/opx_nas_daemon &
 $BINDIR/opx_pas_service &
+if (( "$DELAY" > "0" )) ; then
+    sleep $DELAY
+fi
+$BINDIR/opx_nas_daemon &
+if (( "$DELAY" > "0" )) ; then
+    sleep $DELAY
+fi
 $BINDIR/base_nas_front_panel_ports.sh &
 $BINDIR/base-nas-shell.sh &
 $BINDIR/base_nas_create_interface.sh &
