@@ -26,6 +26,20 @@ apps:
 
 build-packages: [redis-server, libhiredis-dev, gcc, g++, libxml2, libpython-dev, python-setuptools, doxygen, libsystemd-dev, libssl-dev, exuberant-ctags, libxml2-dev, python-pip, debhelper, libsqlite3-dev, libfuse-dev, libevent-dev]
 
+
+slots:
+  control:
+    #Auto-connect yes for snaps from same publisher
+    interface: content
+    content: opx-control
+    write: [.]
+
+  observe:
+    #Auto-connect yes for snaps from same publisher
+    interface: content
+    content: opx-observe
+    read: [.]
+
 parts:
   opx-init:
     plugin: make
@@ -735,14 +749,14 @@ parts:
       - etc/*
 
   tmpctl:
-    source: https://github.com/open-switch/opx-tmpctl.git
+    source: https://github.com/gsherwin3/opx-tmpctl.git
     plugin: autotools
     configflags:
         - --includedir=$(SNAPCRAFT_STAGE)/usr/include
         - --prefix=/
         - --exec-prefix=/
         - --libdir=/usr/lib/x86_64-linux-gnu
-        - --bindir=/bin
+        - --bindir=/usr/bin
         - --sysconfdir=/etc
         - CFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
         - CXXFLAGS=-I$(SNAPCRAFT_STAGE)/usr/include/opx
