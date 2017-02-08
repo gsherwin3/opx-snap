@@ -55,7 +55,21 @@ parts:
   pyang:
     source: https://github.com/stevedelahunty/pyang.git
     plugin: make
-
+    build: |
+       echo "Custom Building pyang..."
+       make
+       (cd $SNAPCRAFT_PART_INSTALL; tar --strip-components=1 --extract --gunzip --file ../build/dist/pyang-1.7.1.tar.gz)
+    filesets:
+      notneeded: [ LICENSE, MANIFEST.in PKG-INFO README pyang.egg-info ]
+    stage:
+      - bin/*
+      - tools/*
+      - -$notneeded      # don't need these files.
+    snap:
+      - bin/*
+      - tools/*
+      - -$notneeded      # don't need these files.
+      
   logging:
     source: https://github.com/gsherwin3/opx-logging.git
     plugin: autotools
@@ -128,6 +142,7 @@ parts:
 
   base-model:
     source: https://github.com/gsherwin3/opx-base-model.git
+
     configflags:
         - --includedir=/usr/include
         - --prefix=/
