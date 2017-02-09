@@ -32,7 +32,7 @@ slots:
     content: control
     interface: content
     write:
-    - /
+    - $SNAP_DATA
 
   observe:
     content: observe
