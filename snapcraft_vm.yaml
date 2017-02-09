@@ -49,7 +49,7 @@ parts:
       notneeded: [ etc/redis/redis.conf ]
     stage:
       - -etc/redis/redis.conf
-    snap:
+    prime:
       - -etc/redis/redis.conf
 
   pyang:
@@ -65,7 +65,7 @@ parts:
       - bin/*
       - tools/*
       - -$notneeded      # don't need these files.
-    snap:
+    prime:
       - bin/*
       - tools/*
       - -$notneeded      # don't need these files.
@@ -86,7 +86,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -110,7 +110,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -134,7 +134,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -159,7 +159,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -183,7 +183,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -207,7 +207,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -233,7 +233,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -257,7 +257,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -281,7 +281,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -305,7 +305,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -329,7 +329,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -353,7 +353,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -377,7 +377,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -401,7 +401,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -425,7 +425,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -449,7 +449,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -474,7 +474,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -498,7 +498,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -522,7 +522,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -546,7 +546,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -574,7 +574,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - inc/*
       - usr/*
       - lib/*
@@ -603,7 +603,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -628,7 +628,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -653,7 +653,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -678,7 +678,7 @@ parts:
 #      - lib/*
 #      - bin/*
 #      - etc/*
-#    snap: 
+#    prime: 
 #      - usr/*
 #      - lib/*
 #      - bin/*
@@ -733,7 +733,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -757,7 +757,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -781,7 +781,7 @@ parts:
       - lib/*
       - bin/*
       - etc/*
-    snap: 
+    prime: 
       - usr/*
       - lib/*
       - bin/*
@@ -803,7 +803,7 @@ parts:
   #    - etc/*
   #    - src/*
   #    - dist/*
-  #  snap: 
+  #  prime: 
   #    - usr/*
   #    - lib/*
   #    - bin/*
@@ -820,7 +820,7 @@ parts:
       - py/*
       - examples/*
       - -$notneeded      # don't need these files.
-    snap:
+    prime:
       - py/*
       - examples/*
       - -$notneeded      # don't need these files.
@@ -841,7 +841,7 @@ parts:
     stage:
       - src/*
       - -$notneeded      # don't need these files.
-    snap:
+    prime:
       - src/*
       - -$notneeded      # don't need these files.
 
@@ -870,7 +870,7 @@ parts:
       - src/
       - main.go
       - -$notneeded      # don't need these files.
-    snap:
+    prime:
       - params/*
       - server/*
       - docgen/*
@@ -899,7 +899,7 @@ parts:
   #  stage:
   #    - src/
   #    - -$notneeded      # don't need these files.
-  #  snap:
+  #  prime:
   #    - src/
   #    - -$notneeded      # don't need these files.
 
