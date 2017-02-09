@@ -29,16 +29,16 @@ build-packages: [redis-server, libhiredis-dev, gcc, g++, libxml2, libpython-dev,
 
 slots:
   control:
-    #Auto-connect yes for snaps from same publisher
+    content: control
     interface: content
-    content: opx-control
-    write: [.]
+    write:
+    - /
 
   observe:
-    #Auto-connect yes for snaps from same publisher
+    content: observe
     interface: content
-    content: opx-observe
-    read: [.]
+    read:
+    - /
 
 parts:
   opx-init:
