@@ -14,7 +14,7 @@ if [ ! -d  $SNAP_DATA/etc/opx ]
 then
      mkdir -p $SNAP_DATA/etc/opx
      /bin/cp $SNAP/etc/opx/sai_vm_db.cfg $SNAP_DATA/etc/opx/sai_vm_db.cfg
-     sed -i -e"s|\/opt\/dell\/os10\/sai-db|$SNAP_DATA\/etc\/opx|g" $SNAP_DATA/etc/opx/sai_vm_db.cfg
+     sed -i -e"s|\/etc\/opx|$SNAP_DATA\/etc\/opx|g" $SNAP_DATA/etc/opx/sai_vm_db.cfg
      /bin/cp $SNAP/etc/opx/*.sql $SNAP_DATA/etc/opx
 fi
 
