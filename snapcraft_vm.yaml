@@ -702,14 +702,14 @@ parts:
        mkdir $SNAPCRAFT_PART_INSTALL/usr
        mkdir $SNAPCRAFT_PART_INSTALL/usr/bin
        mv $SNAPCRAFT_PART_INSTALL/common/etc/opx/opx-environment.sh $SNAPCRAFT_PART_INSTALL/etc/opx/opx-environment.sh
-       mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000/etc/opx/nas/phy_media_default_npu_setting.xml $SNAPCRAFT_PART_INSTALL/etc/opx/phy_media_default_npu_setting.xml
+       mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000/etc/opx/phy_media_default_npu_setting.xml $SNAPCRAFT_PART_INSTALL/etc/opx/phy_media_default_npu_setting.xml
        mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000/etc/opx/pas/config.xml $SNAPCRAFT_PART_INSTALL/etc/opx/pas/config.xml
        mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000-hw/bin/opx_platform_init.sh $SNAPCRAFT_PART_INSTALL/usr/bin/opx_platform_init.sh
        mv $SNAPCRAFT_PART_INSTALL/common-hw/bin/pcisysfs.py $SNAPCRAFT_PART_INSTALL/usr/bin/pcisysfs.py
        mv $SNAPCRAFT_PART_INSTALL/common-hw/bin/portiocfg.py $SNAPCRAFT_PART_INSTALL/usr/bin/portiocfg.py
-       mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000/etc/opx/nas/base_port_physical_mapping_table.xml $SNAPCRAFT_PART_INSTALL/etc/opx/base_port_physical_mapping_table.xml
+       mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000/etc/opx/base_port_physical_mapping_table.xml $SNAPCRAFT_PART_INSTALL/etc/opx/base_port_physical_mapping_table.xml
        mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000-vm/etc/opx/sai/init.xml $SNAPCRAFT_PART_INSTALL/etc/opx/sai/init.xml 
-       mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000/etc/opx/nas/switch.xml $SNAPCRAFT_PART_INSTALL/etc/opx/switch.xml 
+       mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000/etc/opx/switch.xml $SNAPCRAFT_PART_INSTALL/etc/opx/switch.xml 
        #mv $SNAPCRAFT_PART_INSTALL/vendor/dell/s6000-hw/etc/opx/sai/init.xml $SNAPCRAFT_PART_INSTALL/etc/opx/sai/init.xml 
 
   db-sql:
